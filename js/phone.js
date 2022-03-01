@@ -1,3 +1,6 @@
+const allPhones = document.getElementById('all-phone');
+
+
 const searchButton = ()=>{
     const phoneInput = document.getElementById('phone-input') ;
     const phoneValue = phoneInput.value;
@@ -6,7 +9,11 @@ const searchButton = ()=>{
         error.innerText = 'Please enter a phone';
         allPhones.innerHTML = '';
 
-    }else {
+    } 
+    // else if (isNaN(phoneValue) ) {
+    //     error.innerText = 'No result found'
+    // }
+    else {
         fetch(`https://openapi.programming-hero.com/api/phones?search=${phoneValue}`)
         .then(res => res.json())
         .then(data => displayPhones(data.data))
@@ -17,10 +24,13 @@ const searchButton = ()=>{
 
 }
 const displayPhones = phones => {
-    console.log(phones);
+    const first20Phone = phones.slice(0, 20);
+    // console.log(first20Phone);
+
     const allPhones = document.getElementById('all-phone');
-    for (const phone of phones) {
-        console.log(phone.image);
+    for (const phone of first20Phone) {
+        // console.log(phone);
+    
     const div = document.createElement('div');
     div.classList.add('col-lg-4')
     div.classList.add('my-4')
