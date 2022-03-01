@@ -1,5 +1,6 @@
-const allPhones = document.getElementById('all-phone');
 
+const phoneSingle = document.getElementById('single-phone')
+const allPhones = document.getElementById('all-phone');
 
 const searchButton = ()=>{
     const phoneInput = document.getElementById('phone-input') ;
@@ -8,9 +9,11 @@ const searchButton = ()=>{
     if (phoneValue == '') {
         error.innerText = 'Please enter a phone';
         allPhones.innerHTML = '';
+        phoneSingle.innerHTML ='';
 
     }  
     else {
+        phoneSingle.innerHTML ='';
         allPhones.innerHTML = '';
         fetch(`https://openapi.programming-hero.com/api/phones?search=${phoneValue}`)
         .then(res => res.json())
@@ -33,7 +36,7 @@ const displayPhones = phones => {
     div.classList.add('col-lg-4')
     div.classList.add('my-4')
     div.innerHTML = `
-    <div class="card" style="width: 18rem;">
+    <div class="card shadow p-3 mb-5 bg-body rounded" style="width: 18rem;">
           <img src="${phone.image}" class="card-img-top" alt="...">
       <div class="card-body">
           <h5>${phone.phone_name}</h5>
@@ -58,15 +61,17 @@ const phoneDetails = (singlePhone) => {
 
 const displaySinglePhone = details => {
     console.log(details);
-    allPhones.innerHTML = '';
+    // allPhones.innerHTML = '';
+    phoneSingle.innerHTML ='';
+
     const div = document.createElement('div');
    
     div.classList.add('justify-content-center')
     div.innerHTML = `
-    <div class="card w-50 mx-auto mb-3" >
+    <div class="card w-75 mx-auto mb-3" >
     <div class="row g-0">
       <div class="col-lg-6 p-4">
-        <img src="${details.image}" class="img-fluid rounded-start" alt="...">
+        <img src="${details.image}" class="img-fluid  rounded-start" alt="...">
       </div>
       <div class="col-lg-6">
         <div class="card-body">
@@ -88,7 +93,7 @@ const displaySinglePhone = details => {
     </div>
   </div>
       `
-     allPhones.appendChild(div);
+      phoneSingle.appendChild(div);
 
 
 }
