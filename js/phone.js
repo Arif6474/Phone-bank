@@ -36,7 +36,7 @@ const displayPhones = phones => {
     <div class="card" style="width: 18rem;">
           <img src="${phone.image}" class="card-img-top" alt="...">
       <div class="card-body">
-          <h5>${phone.phone_name?name:"no result found"}</h5>
+          <h5>${phone.phone_name}</h5>
         <p>Brand: ${phone.brand}</p>
         <button onclick = "phoneDetails('${phone.slug}')" class="btn btn-primary">Details</button>
       </div>
@@ -60,19 +60,29 @@ const displaySinglePhone = details => {
     console.log(details);
     allPhones.innerHTML = '';
     const div = document.createElement('div');
-    div.classList.add('d-flex')
+   
     div.classList.add('justify-content-center')
     div.innerHTML = `
-    <div class="card mb-3" >
+    <div class="card w-50 mx-auto mb-3" >
     <div class="row g-0">
-      <div class="col-md-4">
+      <div class="col-lg-6 p-4">
         <img src="${details.image}" class="img-fluid rounded-start" alt="...">
       </div>
-      <div class="col-md-8">
+      <div class="col-lg-6">
         <div class="card-body">
           <h5 class="card-title">${details.name}</h5>
           <p class="card-text">${details.slug}</p>
-          <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+          <p class="card-text"><span class="fw-bold">Release:</span> ${details.releaseDate}</p>
+          <h5 class="card-title">Main Features</h5>
+          <p><span class="fw-bold">Display Size:</span> ${details.mainFeatures.displaySize} </p>
+          <p><span class="fw-bold">Memory:</span> ${details.mainFeatures.memory} </p>
+          <p><span class="fw-bold">Storage:</span> ${details.mainFeatures.storage} </p>
+          <p><span class="fw-bold">Sensors:</span> ${details.mainFeatures.sensors} </p>
+          <h5 class="card-title">Others</h5>
+          <p><span class="fw-bold">Bluetooth:</span> ${details.others.Bluetooth} </p>
+          <p><span class="fw-bold">GPS:</span> ${details.others.GPS} </p>
+          <p><span class="fw-bold">USB:</span> ${details.others.USB} </p>
+          <p><span class="fw-bold">WLAN:</span> ${details.others.WLAN} </p>
         </div>
       </div>
     </div>
