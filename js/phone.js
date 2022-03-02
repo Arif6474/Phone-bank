@@ -71,23 +71,24 @@ const displaySinglePhone = details => {
     <div class="card w-75 mx-auto mb-3" >
     <div class="row g-0">
       <div class="col-lg-6 p-4">
-        <img src="${details.image}" class="img-fluid  rounded-start" alt="...">
+        <img src="${details.image}" class="img-fluid w-100 rounded-start" alt="...">
       </div>
       <div class="col-lg-6">
         <div class="card-body">
           <h5 class="card-title">${details.name}</h5>
           <p class="card-text">${details.slug}</p>
-          <p class="card-text"><span class="fw-bold">Release:</span> ${details.releaseDate}</p>
+          <p class="card-text"><span class="fw-bold">Release:</span> ${details.releaseDate?details.releaseDate:'Not available'}</p>
           <h5 class="card-title">Main Features</h5>
           <p><span class="fw-bold">Display Size:</span> ${details.mainFeatures.displaySize} </p>
           <p><span class="fw-bold">Memory:</span> ${details.mainFeatures.memory} </p>
           <p><span class="fw-bold">Storage:</span> ${details.mainFeatures.storage} </p>
           <p><span class="fw-bold">Sensors:</span> ${details.mainFeatures.sensors} </p>
           <h5 class="card-title">Others</h5>
-          <p><span class="fw-bold">Bluetooth:</span> ${details.others.Bluetooth} </p>
-          <p><span class="fw-bold">GPS:</span> ${details.others.GPS} </p>
-          <p><span class="fw-bold">USB:</span> ${details.others.USB} </p>
-          <p><span class="fw-bold">WLAN:</span> ${details.others.WLAN} </p>
+          <p><span class="fw-bold">Bluetooth:</span> ${details.others.Bluetooth?details.others.Bluetooth:'Not available'} </p>
+          
+          <p><span class="fw-bold">GPS:</span> ${details.others.GPS?details.others.GPS:'Not available'} </p>
+          <p><span class="fw-bold">USB:</span> ${details.others.USB?details.others.USB:'Not available'} </p>
+          <p><span class="fw-bold">WLAN:</span> ${details.others.WLAN?details.others.WLAN:'Not available'} </p>
         </div>
       </div>
     </div>
