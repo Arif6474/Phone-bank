@@ -6,8 +6,8 @@ const searchButton = ()=>{
     const phoneInput = document.getElementById('phone-input') ;
     const phoneValue = phoneInput.value;
     const error = document.getElementById('error');
-    if (phoneValue == '') {
-        error.innerText = 'Please enter a phone';
+    if (phoneValue == '' ) {
+        error.innerText = 'No Result Found';
         allPhones.innerHTML = '';
         phoneSingle.innerHTML ='';
 
@@ -60,7 +60,7 @@ const phoneDetails = (singlePhone) => {
 }
 
 const displaySinglePhone = details => {
-    console.log(details);
+    // console.log(details);
     // allPhones.innerHTML = '';
     phoneSingle.innerHTML ='';
 
